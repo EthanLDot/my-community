@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyCommunity</string>
+    <string name="log_in">LOGIN</string>
+    <string name="btn_name">T</string>
+</resources>
