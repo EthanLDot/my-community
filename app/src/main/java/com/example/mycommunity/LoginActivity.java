@@ -27,13 +27,13 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     Button loginBtn;
     
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         loginBtn = findViewById(R.id.loginButton);
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -66,6 +66,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+
+        Button temploginBtn = this.findViewById(R.id.tempLoginButton);
+        temploginBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                login();
             }
         });
     }
@@ -129,5 +136,10 @@ public class LoginActivity extends AppCompatActivity {
         User u = new User(displayName, email);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("User");
         db.child(email.replaceAll("[.#$]" , ",")).setValue(u);
+    }
+
+    void login(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
