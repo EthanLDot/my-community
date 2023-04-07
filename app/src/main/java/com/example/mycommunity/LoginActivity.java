@@ -137,4 +137,8 @@ public class LoginActivity extends AppCompatActivity {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("User");
         db.child(email.replaceAll("[.#$]" , ",")).setValue(u);
     }
+    void login(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
