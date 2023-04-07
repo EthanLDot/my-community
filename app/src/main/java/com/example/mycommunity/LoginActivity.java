@@ -68,6 +68,13 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
+
+        Button temploginBtn = this.findViewById(R.id.tempLoginButton);
+        temploginBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                login();
+            }
+        });
     }
 
     void signIn(){
