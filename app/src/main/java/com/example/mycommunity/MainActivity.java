@@ -1,5 +1,6 @@
 package com.example.mycommunity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         gsc = GoogleSignIn.getClient(this, gso);
         signOutBtn = findViewById(R.id.sign_out_btn);
+
+
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setTitle("Home Page");
+        getSupportActionBar().setCustomView(R.layout.actionbar_center);
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
     }
 
     public void onTroopBtnClicked(View view) {
