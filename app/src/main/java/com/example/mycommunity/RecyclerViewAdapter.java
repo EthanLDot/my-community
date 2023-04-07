@@ -17,7 +17,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_boy_scout_finder, parent, false);
+                .inflate(R.layout.recyclerview_item_layout, parent, false);
         return new MyViewHolder(itemView);
     }
 

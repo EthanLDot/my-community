@@ -21,7 +21,7 @@ public class BoyScoutFinderActivity extends AppCompatActivity {
 
         Button homePage = this.findViewById(R.id.home_btn);
 
-        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> data = new ArrayList<>();
 
