@@ -1,6 +1,7 @@
 package com.example.mycommunity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,8 @@ public class BoyScoutFinderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boy_scout_finder);
+        Fragment f = new MapFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.map_show, f).commit();
 
         Button homePage = this.findViewById(R.id.home_btn);
 
