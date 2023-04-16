@@ -28,6 +28,15 @@ public class MapFragment extends Fragment {
         map.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull GoogleMap googleMap) {
+                MarkerOptions marker = new MarkerOptions();
+
+
+                LatLng p = new LatLng( ((35.6762)),
+                        ((139.6503) ));
+                marker.position(p);
+                marker.title("tokyo");
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
+                googleMap.addMarker(marker);
 
                 googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
@@ -38,7 +47,7 @@ public class MapFragment extends Fragment {
                         marker.position(latLng);
                         marker.title(latLng.latitude + "" + latLng.longitude);
 
-                        googleMap.clear();
+                        //googleMap.clear();
                         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 50));
                         googleMap.addMarker(marker);
                     }
@@ -47,7 +56,6 @@ public class MapFragment extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return view;
     }
 }
