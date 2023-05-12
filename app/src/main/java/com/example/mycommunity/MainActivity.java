@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -19,7 +20,13 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
     Button signOutBtn;
-    Button troopFinderBtn;
+    ImageButton newsArticleBtn;
+    ImageButton volunteerBtn;
+    ImageButton homeBtn;
+    ImageButton donationBtn;
+    ImageButton myTroopBtn;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,12 +45,53 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         gsc = GoogleSignIn.getClient(this, gso);
         signOutBtn = findViewById(R.id.sign_out_btn);
+
+        volunteerBtn = findViewById(R.id.volunteer_btn);
+        homeBtn = findViewById(R.id.home_btn);
+        donationBtn = findViewById(R.id.donation_btn);
+        myTroopBtn = findViewById(R.id.my_troop_btn);
+        newsArticleBtn = findViewById(R.id.new_article_btn);
+
+        volunteerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, VolunteerActivity.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
+
+        donationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DonationActivity.class));
+            }
+        });
+
+        myTroopBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MyTroopActivity.class));
+            }
+        });
+
+        newsArticleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NewsActivity.class));
+            }
+        });
+
     }
 
-    public void onTroopBtnClicked(View view) {
-        Intent intent = new Intent(this, BoyScoutFinderActivity.class);
-        startActivity(intent);
-    }
+
+
+
 
     public void signOut (View view) {
             gsc.signOut()

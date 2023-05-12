@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MyTroopActivity">
 
+    <include layout="@layout/reusable_main_buttons"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

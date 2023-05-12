@@ -26,10 +26,10 @@
             android:name=".DonationActivity"
             android:exported="false" />
         <activity
-            android:name=".ServiceVolunteerActivity"
+            android:name=".VolunteerActivity"
             android:exported="false" />
         <activity
-            android:name=".BoyScoutFinderActivity"
+            android:name=".NewsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

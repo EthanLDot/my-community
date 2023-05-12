@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class MyTroopActivity extends AppCompatActivity {
-    Button signOutBtn;
+public class VolunteerActivity extends AppCompatActivity {
     ImageButton newsArticleBtn;
     ImageButton volunteerBtn;
     ImageButton homeBtn;
@@ -19,7 +17,7 @@ public class MyTroopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_troop);
+        setContentView(R.layout.activity_service_volunteer);
 
         volunteerBtn = findViewById(R.id.volunteer_btn);
         homeBtn = findViewById(R.id.home_btn);
@@ -30,38 +28,36 @@ public class MyTroopActivity extends AppCompatActivity {
         volunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, VolunteerActivity.class));
+                startActivity(new Intent(VolunteerActivity.this, VolunteerActivity.class));
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, MainActivity.class));
+                startActivity(new Intent(VolunteerActivity.this, MainActivity.class));
             }
         });
 
         donationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, DonationActivity.class));
+                startActivity(new Intent(VolunteerActivity.this, DonationActivity.class));
             }
         });
 
         myTroopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, MyTroopActivity.class));
+                startActivity(new Intent(VolunteerActivity.this, MyTroopActivity.class));
             }
         });
 
         newsArticleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, NewsActivity.class));
+                startActivity(new Intent(VolunteerActivity.this, NewsActivity.class));
             }
         });
     }
-
-
 }
