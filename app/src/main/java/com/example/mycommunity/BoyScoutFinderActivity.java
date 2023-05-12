@@ -19,8 +19,6 @@ public class BoyScoutFinderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boy_scout_finder);
-        Fragment f = new MapFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.map_show, f).commit();
 
         Button homePage = this.findViewById(R.id.home_btn);
 
