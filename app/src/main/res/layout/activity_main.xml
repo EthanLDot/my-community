@@ -6,20 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/map_show"
-        android:layout_marginTop="0dp"
-        android:layout_width="0dp"
-        android:layout_height="620dp"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/map_show"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="25dp"
+            android:layout_weight="20">
 
-    <include layout="@layout/reusable_main_buttons"/>
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="80">
+
+            <include layout="@layout/reusable_main_buttons" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/sign_out_btn"
