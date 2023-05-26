@@ -18,19 +18,19 @@
             android:layout_width="match_parent"
             android:layout_height="620dp"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="20">
+            android:layout_marginBottom="35dp"
+            android:layout_weight="0">
 
         </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="80">
+            android:layout_weight="100">
 
-            <include layout="@layout/reusable_main_buttons" />
+                <include layout="@layout/reusable_main_buttons" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        
     </LinearLayout>
 
     <Button

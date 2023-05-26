@@ -1,67 +1,49 @@
 package com.example.mycommunity;
 
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.app.AlertDialog;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-
 public class MyTroopActivity extends AppCompatActivity {
-    Button signOutBtn;
-    ImageButton newsArticleBtn;
-    ImageButton volunteerBtn;
-    ImageButton homeBtn;
-    ImageButton donationBtn;
-    ImageButton myTroopBtn;
-
+    Button closeButton;
+    AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_troop);
 
-        volunteerBtn = findViewById(R.id.volunteer_btn);
-        homeBtn = findViewById(R.id.home_btn);
-        donationBtn = findViewById(R.id.donation_btn);
-        myTroopBtn = findViewById(R.id.my_troop_btn);
-        newsArticleBtn = findViewById(R.id.new_article_btn);
+        closeButton = (Button) findViewById(R.id.edit);
+        builder = new AlertDialog.Builder(this);
 
-        volunteerBtn.setOnClickListener(new View.OnClickListener() {
+        closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, VolunteerActivity.class));
-            }
-        });
+                builder.setTitle(" Alert Dialog Title");
+                builder.setView(getLayoutInflater().inflate(R.layout.edit, null));
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, MainActivity.class));
-            }
-        });
+                builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                    }
+                });
 
-        donationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, DonationActivity.class));
-            }
-        });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel(); // closes dialog
+                    }
+                });
 
-        myTroopBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, MyTroopActivity.class));
-            }
-        });
-
-        newsArticleBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, NewsActivity.class));
+                builder.show();
             }
         });
     }
-
-
 }
