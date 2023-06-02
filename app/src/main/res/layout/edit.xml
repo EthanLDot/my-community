@@ -5,30 +5,30 @@
     android:background="#fff"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_margin="10dp"
-        android:background="#009588"
-        android:gravity="center"
-        android:text="Update..."
-        android:textColor="#fff"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="#009588"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Update..."-->
+<!--        android:textColor="#fff"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textStyle="bold"/>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_gravity="center"
-        android:textColorHint="#000">
+        android:textColorHint="#fff">
 
         <EditText
-            android:id="@+id/fname"
+            android:id="@+id/tName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Full Name"
+            android:hint="Troop Name"
             android:inputType="textPersonName"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -38,14 +38,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_gravity="center"
-        android:textColorHint="#000">
+        android:textColorHint="#fff">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/tEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Email ID"
+            android:hint="Troop Email"
             android:inputType="textEmailAddress"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,70 +55,43 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_gravity="center"
-        android:textColorHint="#000">
+        android:textColorHint="#fff">
 
         <EditText
-            android:id="@+id/dob"
+            android:id="@+id/tAddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Date Of Birth"
-            android:inputType="date"
+            android:hint="Troop Address"
+            android:inputType="textPostalAddress"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
         android:layout_gravity="center"
-        android:weightSum="2">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_weight="1"
-            android:textColorHint="#000">
+        android:textColorHint="#fff">
 
         <EditText
-            android:id="@+id/age"
+            android:id="@+id/tDescription"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Age"
-            android:inputType="date"
+            android:hint="Troop Description"
+            android:inputType="textLongMessage"
             android:textSize="15sp"/>
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_weight="1"
-            android:textColorHint="#000">
-
-            <EditText
-                android:id="@+id/gender"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:hint="Gender"
-                android:textSize="15sp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/update"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/tImage"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Update"
-        android:layout_gravity="end"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="#fff"
-        android:textStyle="bold"/>
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center"
+        android:textColorHint="#fff">
+
+    </ImageButton>
 
 </LinearLayout>
