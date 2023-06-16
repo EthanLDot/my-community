@@ -31,10 +31,10 @@ public class MapFragment extends Fragment {
                 MarkerOptions marker = new MarkerOptions();
 
 
-                LatLng p = new LatLng( ((35.6762)),
-                        ((139.6503) ));
+                LatLng p = new LatLng( ((34.0522266)),
+                        ((-118.24368) ));
                 marker.position(p);
-                marker.title("tokyo");
+                marker.title("Los Angeles");
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
                 googleMap.addMarker(marker);
 

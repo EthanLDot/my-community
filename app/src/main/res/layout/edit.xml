@@ -84,14 +84,14 @@
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
-        android:id="@+id/tImage"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_gravity="center"
-        android:textColorHint="#fff">
+<!--    <ImageButton-->
+<!--        android:id="@+id/tImage"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:textColorHint="#fff">-->
 
-    </ImageButton>
+<!--    </ImageButton>-->
 
 </LinearLayout>

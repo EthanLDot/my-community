@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class MyTroopActivity extends AppCompatActivity {
     Button signOutBtn;
-    ImageButton newsArticleBtn, volunteerBtn, homeBtn, donationBtn, myTroopBtn;
+    ImageButton newsArticleBtn, volunteerBtn, homeBtn, myTroopBtn;
 
     Button Edit;
 
@@ -125,9 +125,8 @@ public class MyTroopActivity extends AppCompatActivity {
 
         volunteerBtn = findViewById(R.id.volunteer_btn);
         homeBtn = findViewById(R.id.home_btn);
-        donationBtn = findViewById(R.id.donation_btn);
         myTroopBtn = findViewById(R.id.my_troop_btn);
-        newsArticleBtn = findViewById(R.id.new_article_btn);
+        newsArticleBtn = findViewById(R.id.news_article_btn);
 
         volunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,13 +139,6 @@ public class MyTroopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MyTroopActivity.this, MainActivity.class));
-            }
-        });
-
-        donationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MyTroopActivity.this, DonationActivity.class));
             }
         });
 

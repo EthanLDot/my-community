@@ -6,100 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".MyTroopActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="15dp"-->
-<!--        android:elevation="100dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:background="#ffff"-->
-<!--            android:padding="10dp"-->
-<!--            android:weightSum="4">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="35dp"
+            android:layout_weight="0">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_weight="3"-->
-<!--                android:padding="10dp">-->
+            <TextView
+                android:id="@+id/tName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.038"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.119"
+                android:text="Troop Name: "
+                android:textSize="25dp">
+            </TextView>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/fname"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Full Name"-->
-<!--                    android:textColor="#000"-->
-<!--                    android:textSize="25sp"/>-->
+            <TextView
+                android:id="@+id/tEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.038"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.319"
+                android:text="Troop Email: "
+                android:textSize="25dp">
+            </TextView>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/email"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Email ID"-->
-<!--                    android:textColor="#000"-->
-<!--                    android:textSize="15sp"/>-->
+            <TextView
+                android:id="@+id/tAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.038"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.519"
+                android:text="Troop Address: "
+                android:textSize="25dp">
+            </TextView>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/dob"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Full Name"-->
-<!--                    android:textColor="#000"-->
-<!--                    android:textSize="15sp"/>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="2">-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/age"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text="Age"-->
-<!--                        android:textColor="#000"-->
-<!--                        android:textSize="15sp"/>-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/gender"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text="Gender"-->
-<!--                        android:textColor="#000"-->
-<!--                        android:textSize="15sp"/>-->
-
-
-<!--                </LinearLayout>-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_weight="1">-->
-
-<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/edit"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:src="@drawable/edit_image"/>&ndash;&gt;-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
+            <TextView
+                android:id="@+id/tDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.038"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.719"
+                android:text="Troop Description: "
+                android:textSize="20dp">
+            </TextView>
 
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/reusable_main_buttons"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="100">
+
+            <include layout="@layout/reusable_main_buttons" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/edit"

@@ -23,9 +23,6 @@
             android:name=".MyTroopActivity"
             android:exported="false" />
         <activity
-            android:name=".DonationActivity"
-            android:exported="false" />
-        <activity
             android:name=".VolunteerActivity"
             android:exported="false" />
         <activity

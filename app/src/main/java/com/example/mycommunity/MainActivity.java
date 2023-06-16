@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton newsArticleBtn;
     ImageButton volunteerBtn;
     ImageButton homeBtn;
-    ImageButton donationBtn;
     ImageButton myTroopBtn;
 
 
@@ -48,9 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         volunteerBtn = findViewById(R.id.volunteer_btn);
         homeBtn = findViewById(R.id.home_btn);
-        donationBtn = findViewById(R.id.donation_btn);
         myTroopBtn = findViewById(R.id.my_troop_btn);
-        newsArticleBtn = findViewById(R.id.new_article_btn);
+        newsArticleBtn = findViewById(R.id.news_article_btn);
 
         volunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,13 +61,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
-            }
-        });
-
-        donationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DonationActivity.class));
             }
         });
 
