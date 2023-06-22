@@ -91,7 +91,7 @@ public class NewsActivity extends AppCompatActivity {
 
 
         public static void main(String[] args) throws IOException {
-            URL url = new URL("http://www.example.com");
+            URL url = new URL("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=YvJKaX77YUAGLwkBlGlqKApoBWbWULPH");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
