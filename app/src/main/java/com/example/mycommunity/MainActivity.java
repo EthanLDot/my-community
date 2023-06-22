@@ -19,14 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
-    Button signOutBtn;
+    ImageButton signOutBtn;
     ImageButton newsArticleBtn;
     ImageButton volunteerBtn;
     ImageButton homeBtn;
     ImageButton myTroopBtn;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
-        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tvTitle)).setText("Home Page");
+        ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tvTitle)).setText("Troop Map");
       gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();

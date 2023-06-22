@@ -29,7 +29,7 @@
                 app:layout_constraintHorizontal_bias="0.038"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.119"
+                app:layout_constraintVertical_bias="0"
                 android:text="Troop Name: "
                 android:textSize="25dp">
             </TextView>
@@ -43,7 +43,7 @@
                 app:layout_constraintHorizontal_bias="0.038"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.319"
+                app:layout_constraintVertical_bias="0.2"
                 android:text="Troop Email: "
                 android:textSize="25dp">
             </TextView>
@@ -57,8 +57,8 @@
                 app:layout_constraintHorizontal_bias="0.038"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.519"
-                android:text="Troop Address: "
+                app:layout_constraintVertical_bias="0.4"
+                android:text="Troop Address (Lat, Long): "
                 android:textSize="25dp">
             </TextView>
 
@@ -71,7 +71,7 @@
                 app:layout_constraintHorizontal_bias="0.038"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.719"
+                app:layout_constraintVertical_bias="0.6"
                 android:text="Troop Description: "
                 android:textSize="20dp">
             </TextView>
@@ -89,14 +89,17 @@
 
     </LinearLayout>
 
-
-    <Button
+    <ImageButton
         android:id="@+id/edit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:src="@drawable/edit_image"
+        android:background="@null"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

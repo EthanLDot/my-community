@@ -73,13 +73,6 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
-        Button temploginBtn = this.findViewById(R.id.tempLoginButton);
-        temploginBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                login();
-            }
-        });
     }
 
     void signIn(){
@@ -141,9 +134,5 @@ public class LoginActivity extends AppCompatActivity {
         User u = new User(displayName, email);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("User");
         db.child(email.replaceAll("[.#$]" , ",")).setValue(u);
-    }
-    void login(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }

@@ -18,6 +18,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.*;
+import java.net.*;
+
 public class NewsActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
@@ -35,16 +38,16 @@ public class NewsActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tvTitle)).setText("News");
 
-//        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        List<String> data = new ArrayList<>();
-//
-//        for (int i = 0; i < 10; i++) {
-//            data.add("bob" + i);
-//        }
-//
-//        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(data);
-//        mRecyclerView.setAdapter(mAdapter);
+        RecyclerView mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<String> data = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            data.add("bob" + i);
+        }
+
+        RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(data);
+        mRecyclerView.setAdapter(mAdapter);
 
         volunteerBtn = findViewById(R.id.volunteer_btn);
         homeBtn = findViewById(R.id.home_btn);
@@ -85,4 +88,26 @@ public class NewsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NewsActivity.class);
         startActivity(intent);
     }
+
+
+        public static void main(String[] args) throws IOException {
+            URL url = new URL("http://www.example.com");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+
+            int status = con.getResponseCode();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream())
+            );
+            String inputLine;
+            StringBuilder content = new StringBuilder();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+            System.out.println(status);
+            System.out.println(content);
+        }
+
 }

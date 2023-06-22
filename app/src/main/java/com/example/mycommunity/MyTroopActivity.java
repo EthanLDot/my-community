@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyTroopActivity extends AppCompatActivity {
-    Button closeButton;
+    ImageButton closeButton;
     AlertDialog.Builder builder;
 
     EditText name, email, address, description;
@@ -96,17 +98,17 @@ public class MyTroopActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 HashMap o = (HashMap) dataSnapshot.getValue();
 
+                if(o != null) {
+                    sAddress = (String) o.get("Troop Address (Latitude, Longitude)");
+                    sEmail = (String) o.get("Troop Email");
+                    sName = (String) o.get("Troop Name");
+                    sDescription = (String) o.get("Troop Description");
 
-                sAddress = (String) o.get("Troop Address");
-                sEmail = (String) o.get("Troop Email");
-                sName = (String) o.get("Troop Name");
-                sDescription = (String) o.get("Troop Description");
-
-                tName.setText( "Name: "+ sName);
-                tAddress.setText("Address: " + sAddress);
-                tEmail.setText("Email: " + sEmail);
-                tDescription.setText("Description: " + sDescription);
-
+                    tName.setText("Name: " + sName);
+                    tAddress.setText("Address: " + sAddress);
+                    tEmail.setText("Email: " + sEmail);
+                    tDescription.setText("Description: " + sDescription);
+                }
             }
 
             @Override
@@ -154,7 +156,7 @@ public class MyTroopActivity extends AppCompatActivity {
 //            }
 //        });
 
-        closeButton = (Button) findViewById(R.id.edit);
+        closeButton = (ImageButton) findViewById(R.id.edit);
         builder = new AlertDialog.Builder(this);
 
         closeButton.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +180,7 @@ public class MyTroopActivity extends AppCompatActivity {
 
                         map.put("Troop Name", name.getText().toString());
                         map.put("Troop Email", email.getText().toString());
-                        map.put("Troop Address", address.getText().toString());
+                        map.put("Troop Address (Latitude, Longitude)", address.getText().toString());
                         map.put("Troop Description", description.getText().toString());
 
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Troop Details");

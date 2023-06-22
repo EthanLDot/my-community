@@ -16,6 +16,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MapFragment extends Fragment {
 
@@ -28,16 +30,10 @@ public class MapFragment extends Fragment {
         map.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull GoogleMap googleMap) {
-                MarkerOptions marker = new MarkerOptions();
-
-
-                LatLng p = new LatLng( ((34.0522266)),
-                        ((-118.24368) ));
-                marker.position(p);
-                marker.title("Los Angeles");
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
-                googleMap.addMarker(marker);
-
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Troop Details");
+//                for (: db) {
+//
+//                }
                 googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
                     @Override
@@ -52,8 +48,8 @@ public class MapFragment extends Fragment {
                         googleMap.addMarker(marker);
                     }
                 });
-
             }
+
         });
 
         return view;

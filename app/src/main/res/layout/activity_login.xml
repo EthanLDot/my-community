@@ -7,19 +7,9 @@
       android:id="@+id/loginButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/log_in"
+      android:layout_alignParentBottom="true"
       android:layout_centerInParent="true"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      android:layout_marginBottom="32dp"/>
-
-  <Button
-      android:id="@+id/tempLoginButton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      android:layout_marginBottom="97dp"
-      android:text="Sign-In" />
+      android:layout_marginBottom="151dp"
+      android:text="@string/log_in" />
 
 </RelativeLayout>

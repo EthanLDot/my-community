@@ -62,8 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
-            android:hint="Troop Address"
-            android:inputType="textPostalAddress"
+            android:hint="Troop Address (Latitude, Longitude)"
+            android:inputType="text"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
