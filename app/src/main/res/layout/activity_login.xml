@@ -11,5 +11,4 @@
       android:layout_centerInParent="true"
       android:layout_marginBottom="151dp"
       android:text="@string/log_in" />
-
 </RelativeLayout>

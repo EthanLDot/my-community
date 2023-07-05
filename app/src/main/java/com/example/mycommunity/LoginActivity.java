@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
+
     }
 
     void signIn(){

@@ -43,7 +43,7 @@ public class MyTroopActivity extends AppCompatActivity {
 
     ImageButton image;
 
-    String sAddress, sName, sDescription, sEmail;
+    public static String sAddress, sName, sDescription, sEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +108,8 @@ public class MyTroopActivity extends AppCompatActivity {
                     tAddress.setText("Address: " + sAddress);
                     tEmail.setText("Email: " + sEmail);
                     tDescription.setText("Description: " + sDescription);
+
+
                 }
             }
 
