@@ -11,4 +11,15 @@
       android:layout_centerInParent="true"
       android:layout_marginBottom="151dp"
       android:text="@string/log_in" />
+
+<!--  <Button-->
+<!--      android:id="@+id/signinButton"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:layout_alignParentBottom="true"-->
+<!--      android:layout_centerInParent="true"-->
+<!--      android:layout_marginBottom="200dp"-->
+<!--      android:onClick="signOut"-->
+<!--      android:text="signin" />-->
 </RelativeLayout>
+

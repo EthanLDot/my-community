@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.gson.JsonArray;
@@ -66,6 +67,7 @@ public class NewsActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tvTitle)).setText("News");
 
+
 //        ArrayList<String> titles = new ArrayList<>();
 //        ArrayList<String> subtitles = new ArrayList<>();
 //        ArrayList<String> images = new ArrayList<>();
@@ -90,10 +92,10 @@ public class NewsActivity extends AppCompatActivity {
         subtitle3.setText("Arnon Milchan, a movie mogul, billionaire spy and old friend of Prime Minister Benjamin Netanyahu of Israel, is a key witness. He gave the Netanyahus gifts, he said, sometimes at their request.");
         subtitle4.setText("The election in the Central American nation is marked by the exclusion of top candidates and calls to crack down on violent crime.");
 
-        new DownloadImageTask(findViewById(R.id.image1)).execute("https://static01.nyt.com/images/2023/06/25/multimedia/25russia-wagner-01-wqvp/25russia-wagner-01-wqvp-superJumbo.jpg");
-        new DownloadImageTask(findViewById(R.id.image2)).execute("https://static01.nyt.com/images/2023/06/25/multimedia/25vatican-investigate-lede/hfcv-superJumbo.jpg");
-        new DownloadImageTask(findViewById(R.id.image3)).execute("https://static01.nyt.com/images/2023/06/25/multimedia/25israel-milchan-01-gzvf/25israel-milchan-01-gzvf-superJumbo.jpg");
-        new DownloadImageTask(findViewById(R.id.image4)).execute("https://static01.nyt.com/images/2023/06/25/world/25guatemala-election/25guatemala-election-superJumbo.jpg");
+        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25russia-wagner-01-wqvp/25russia-wagner-01-wqvp-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image1));
+        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25vatican-investigate-lede/hfcv-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image2));
+        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25israel-milchan-01-gzvf/25israel-milchan-01-gzvf-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image3));
+        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/world/25guatemala-election/25guatemala-election-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image4));
 
 //        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(NewsActivity.this));
@@ -148,6 +150,7 @@ public class NewsActivity extends AppCompatActivity {
                         } else {
                             image = "No image available";
                         }
+
 //                        data.add(new News(title, subtitle, image));
                     }
 
