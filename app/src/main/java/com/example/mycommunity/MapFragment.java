@@ -40,69 +40,69 @@ public class MapFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_map, container,false);
         SupportMapFragment map = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragment_map);
 
-        map.getMapAsync(new OnMapReadyCallback() {
-
-            @Override
-            public void onMapReady(@NonNull GoogleMap googleMap) {
-
-                DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Troop Details");
-                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity().getBaseContext());
-                db = db.child(acct.getEmail().replaceAll("[.#$]" , ","));
-
-                ValueEventListener postListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        HashMap o = (HashMap) dataSnapshot.getValue();
-                        if(o != null){
-                            LatLong = (String) o.get("Troop Address (Latitude, Longitude)");
-                            System.out.println(LatLong);
-                            index = LatLong.indexOf(',');
-                            Latitude = Double.parseDouble(LatLong.substring(0,index));
-                            Longitude = Double.parseDouble(LatLong.substring(index+2));
-
-                            MarkerOptions marker = new MarkerOptions();
-                            LatLng p = new LatLng(Latitude, Longitude);
-                            marker.position(p);
-                            marker.title("Your Troop");
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
-                            googleMap.addMarker(marker);
-                        }
-
-                        else {
-                            MarkerOptions marker = new MarkerOptions();
-                            LatLng p = new LatLng(34.052235, -118.243683);
-                            marker.position(p);
-                            marker.title("LA");
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
-                            googleMap.addMarker(marker);
-                        }
-
-
-
-                        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-
-                            @Override
-                            public void onMapClick(@NonNull LatLng latLng) {
-                                MarkerOptions marker = new MarkerOptions();
-
-                                marker.position(latLng);
-                                marker.title(latLng.latitude + "" + latLng.longitude);
-
-                                //googleMap.clear();
-                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 50));
-                                googleMap.addMarker(marker);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                    }
-                };
-                db.addValueEventListener(postListener);
-            }
-
-        });
+//        map.getMapAsync(new OnMapReadyCallback() {
+//
+//            @Override
+//            public void onMapReady(@NonNull GoogleMap googleMap) {
+//
+//                DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Troop Details");
+//                GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity().getBaseContext());
+//                db = db.child(acct.getEmail().replaceAll("[.#$]" , ","));
+//
+//                ValueEventListener postListener = new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        HashMap o = (HashMap) dataSnapshot.getValue();
+//                        if(o != null){
+//                            LatLong = (String) o.get("Troop Address (Latitude, Longitude)");
+//                            System.out.println(LatLong);
+//                            index = LatLong.indexOf(',');
+//                            Latitude = Double.parseDouble(LatLong.substring(0,index));
+//                            Longitude = Double.parseDouble(LatLong.substring(index+2));
+//
+//                            MarkerOptions marker = new MarkerOptions();
+//                            LatLng p = new LatLng(Latitude, Longitude);
+//                            marker.position(p);
+//                            marker.title("Your Troop");
+//                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
+//                            googleMap.addMarker(marker);
+//                        }
+//
+//                        else {
+//                            MarkerOptions marker = new MarkerOptions();
+//                            LatLng p = new LatLng(34.052235, -118.243683);
+//                            marker.position(p);
+//                            marker.title("LA");
+//                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(p, 50));
+//                            googleMap.addMarker(marker);
+//                        }
+//
+//
+//
+//                        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+//
+//                            @Override
+//                            public void onMapClick(@NonNull LatLng latLng) {
+//                                MarkerOptions marker = new MarkerOptions();
+//
+//                                marker.position(latLng);
+//                                marker.title(latLng.latitude + "" + latLng.longitude);
+//
+//                                //googleMap.clear();
+//                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 50));
+//                                googleMap.addMarker(marker);
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//                    }
+//                };
+//                db.addValueEventListener(postListener);
+//            }
+//
+//        });
 
         return view;
     }

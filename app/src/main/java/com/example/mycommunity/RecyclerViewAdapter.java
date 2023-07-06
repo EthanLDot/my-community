@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.ntitle.setText(newsList.getTitle());
         holder.nsubtitle.setText(newsList.getSubtitle());
         Glide
-                .with(context)
+                .with(holder.itemView.getContext())
                 .load(newsList.getImage())
                 .centerCrop()
                 .into(holder.nimage);
