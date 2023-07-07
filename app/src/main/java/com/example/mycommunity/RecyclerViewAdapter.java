@@ -11,15 +11,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Registry;
+import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     List<News> mData;
@@ -36,13 +43,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        News newsList = mData.get(position);
+        final News newsList = mData.get(position);
         holder.ntitle.setText(newsList.getTitle());
         holder.nsubtitle.setText(newsList.getSubtitle());
         Glide
                 .with(holder.itemView.getContext())
                 .load(newsList.getImage())
-                .centerCrop()
+                .placeholder(R.drawable.image_error)
+                .error(R.drawable.image_error)
+                .override(400, 400)
+                .fitCenter()
                 .into(holder.nimage);
     }
 

@@ -58,7 +58,6 @@ public class NewsActivity extends AppCompatActivity {
     String title, subtitle, image;
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -66,36 +65,6 @@ public class NewsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         ((TextView)getSupportActionBar().getCustomView().findViewById(R.id.tvTitle)).setText("News");
-
-
-        ArrayList<String> titles = new ArrayList<>();
-        ArrayList<String> subtitles = new ArrayList<>();
-        ArrayList<String> images = new ArrayList<>();
-
-//        TextView title1 = findViewById(R.id.title1);
-//        TextView title2 = findViewById(R.id.title2);
-//        TextView title3 = findViewById(R.id.title3);
-//        TextView title4 = findViewById(R.id.title4);
-//
-//        TextView subtitle1 = findViewById(R.id.description1);
-//        TextView subtitle2 = findViewById(R.id.description2);
-//        TextView subtitle3 = findViewById(R.id.description3);
-//        TextView subtitle4 = findViewById(R.id.description4);
-//
-//        title1.setText("Putin’s Beast That Would Now Devour Him");
-//        title2.setText("Pope Offers Prayers for ‘Vatican Girl’ Who Disappeared 40 Years Ago");
-//        title3.setText("Hollywood Tycoon Testifies in Netanyahu’s Corruption Trial");
-//        title4.setText("Guatemala Picks a New President: What You Need to Know");
-//
-//        subtitle1.setText("Yevgeny V. Prigozhin, the founder of the paramilitary Wagner Group, has been driven to fury by a mismanaged war in Ukraine. He turned on his creator, before apparently reversing course.");
-//        subtitle2.setText("Francis expressed “closeness” to the family of Emanuela Orlandi, whose disappearance has captivated Italians for decades — and now the world, thanks to Netflix.");
-//        subtitle3.setText("Arnon Milchan, a movie mogul, billionaire spy and old friend of Prime Minister Benjamin Netanyahu of Israel, is a key witness. He gave the Netanyahus gifts, he said, sometimes at their request.");
-//        subtitle4.setText("The election in the Central American nation is marked by the exclusion of top candidates and calls to crack down on violent crime.");
-//
-//        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25russia-wagner-01-wqvp/25russia-wagner-01-wqvp-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image1));
-//        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25vatican-investigate-lede/hfcv-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image2));
-//        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/multimedia/25israel-milchan-01-gzvf/25israel-milchan-01-gzvf-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image3));
-//        Glide.with(NewsActivity.this).load("https://static01.nyt.com/images/2023/06/25/world/25guatemala-election/25guatemala-election-superJumbo.jpg").centerCrop().into((ImageView) findViewById(R.id.image4));
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(NewsActivity.this));
@@ -126,7 +95,7 @@ public class NewsActivity extends AppCompatActivity {
 
                     JsonArray results = jsonObject.getAsJsonArray("results");
 
-                    for (int i = 0; i < results.size(); i++) {
+                    for (int i = 1; i < results.size(); i++) {
                         JsonElement jTitle = results.get(i).getAsJsonObject().get("title");
                         JsonElement jSubtitle = results.get(i).getAsJsonObject().get("abstract");
                         JsonElement multimedia = null;
@@ -145,22 +114,16 @@ public class NewsActivity extends AppCompatActivity {
                         }
 
                         if ((results.get(i).getAsJsonObject().get("multimedia") != null) && (!(results.get(i).getAsJsonObject().get("multimedia").toString().equals("null")))) {
-                            multimedia = results.get(i).getAsJsonObject().get("multimedia").getAsJsonArray().get(0).getAsJsonObject().get("url");
+                            multimedia = results.get(i).getAsJsonObject().get("multimedia").getAsJsonArray().get(1).getAsJsonObject().get("url");
                             image = multimedia.toString();
                         } else {
                             image = "No image available";
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                data.add(new News(title, subtitle, image));
-                                recyclerViewAdapter.notifyDataSetChanged();
-                            }
-                        });
+
+                        data.add(new News(title, subtitle, image));
+                        runOnUiThread(recyclerViewAdapter::notifyDataSetChanged);
                     }
-
                 }
-
             }
         });
 
